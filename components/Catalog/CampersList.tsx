@@ -27,11 +27,11 @@ export default function CampersList() {
 
   return (
     <div className={css.container}>
-      <div className={css.list}>
+      <ul className={css.list}>
         {campersList.map((camper) => (
           <CamperCard key={camper.id} camper={camper} />
         ))}
-      </div>
+      </ul>
 
       {/* Load More Button */}
       {hasMore && (

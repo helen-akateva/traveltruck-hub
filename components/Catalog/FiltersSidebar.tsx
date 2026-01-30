@@ -41,8 +41,8 @@ export default function FiltersSidebar() {
       [key]: prev[key as keyof FilterParams]
         ? undefined
         : value !== undefined
-        ? value
-        : true,
+          ? value
+          : true,
     }));
   };
 
@@ -78,7 +78,7 @@ export default function FiltersSidebar() {
           <div className={css.section}>
             <h4 className={css.subsectionTitle}>Vehicle equipment</h4>
             <div className={`${css.section} ${css.subsectionDivider}`}>
-              <div className={css.grid}>
+              <ul className={css.grid}>
                 {EQUIPMENT_OPTIONS.map((option) => {
                   const isActive =
                     option.key === "transmission"
@@ -86,30 +86,30 @@ export default function FiltersSidebar() {
                       : localFilters[option.key as keyof FilterParams] === true;
 
                   return (
-                    <button
-                      key={option.key}
-                      onClick={() =>
-                        handleEquipmentChange(
-                          option.key,
-                          option.key === "transmission"
-                            ? option.value
-                            : undefined
-                        )
-                      }
-                      className={`${css.filterButton} ${
-                        isActive ? css.active : ""
-                      }`}
-                    >
-                      <svg width={32} height={32} className={css.filterIcon}>
-                        <use
-                          href={`/sprite.svg#icon-${ICON_MAP[option.key]}`}
-                        />
-                      </svg>
-                      <span className={css.filterLabel}>{option.label}</span>
-                    </button>
+                    <li key={option.key}>
+                      <button
+                        onClick={() =>
+                          handleEquipmentChange(
+                            option.key,
+                            option.key === "transmission"
+                              ? option.value
+                              : undefined
+                          )
+                        }
+                        className={`${css.filterButton} ${isActive ? css.active : ""
+                          }`}
+                      >
+                        <svg width={32} height={32} className={css.filterIcon}>
+                          <use
+                            href={`/sprite.svg#icon-${ICON_MAP[option.key]}`}
+                          />
+                        </svg>
+                        <span className={css.filterLabel}>{option.label}</span>
+                      </button>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
           </div>
 
@@ -117,28 +117,28 @@ export default function FiltersSidebar() {
           <div className={css.section}>
             <h4 className={css.subsectionTitle}>Vehicle type</h4>
             <div className={`${css.section} ${css.subsectionDivider}`}>
-              <div className={css.grid}>
+              <ul className={css.grid}>
                 {BODY_TYPES.map((type) => {
                   const isActive = localFilters.form === type.value;
 
                   return (
-                    <button
-                      key={type.value}
-                      onClick={() => handleBodyTypeChange(type.value)}
-                      className={`${css.filterButton} ${
-                        isActive ? css.active : ""
-                      }`}
-                    >
-                      <svg width={32} height={32} className={css.filterIcon}>
-                        <use
-                          href={`/sprite.svg#icon-${ICON_MAP[type.value]}`}
-                        />
-                      </svg>
-                      <span className={css.filterLabel}>{type.label}</span>
-                    </button>
+                    <li key={type.value}>
+                      <button
+                        onClick={() => handleBodyTypeChange(type.value)}
+                        className={`${css.filterButton} ${isActive ? css.active : ""
+                          }`}
+                      >
+                        <svg width={32} height={32} className={css.filterIcon}>
+                          <use
+                            href={`/sprite.svg#icon-${ICON_MAP[type.value]}`}
+                          />
+                        </svg>
+                        <span className={css.filterLabel}>{type.label}</span>
+                      </button>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
           </div>
         </div>

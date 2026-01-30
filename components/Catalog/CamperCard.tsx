@@ -53,7 +53,7 @@ export default function CamperCard({ camper }: CamperCardProps) {
     "/placeholder-camper.jpg";
 
   return (
-    <div className={css.card}>
+    <li className={css.card}>
       <div className={css.cardContent}>
         {/* Image */}
         <div className={css.imageWrapper}>
@@ -85,9 +85,8 @@ export default function CamperCard({ camper }: CamperCardProps) {
                   <svg
                     width={26}
                     height={24}
-                    className={`${css.icon} ${
-                      favorite ? css.favoriteActive : ""
-                    }`}
+                    className={`${css.icon} ${favorite ? css.favoriteActive : ""
+                      }`}
                   >
                     <use href="/sprite.svg#icon-property" />
                   </svg>
@@ -118,16 +117,16 @@ export default function CamperCard({ camper }: CamperCardProps) {
           <p className={css.description}>{camper.description}</p>
 
           {/* Features */}
-          <div className={css.features}>
+          <ul className={css.features}>
             {features.slice(0, 4).map((feature, index) => (
-              <span key={index} className={css.feature}>
+              <li key={index} className={css.feature}>
                 <svg width={20} height={20} className={css.featureIcon}>
                   <use href={`/sprite.svg#icon-${feature.icon}`} />
                 </svg>
                 {feature.label}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Actions */}
           <div className={css.actions}>
@@ -137,6 +136,6 @@ export default function CamperCard({ camper }: CamperCardProps) {
           </div>
         </div>
       </div>
-    </div>
+    </li>
   );
 }

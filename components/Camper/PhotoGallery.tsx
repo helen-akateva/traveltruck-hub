@@ -15,17 +15,17 @@ export default function PhotoGallery({ images, name }: PhotoGalleryProps) {
   }
 
   return (
-    <div className={css.gallery}>
+    <ul className={css.gallery}>
       {images.map((image, index) => (
-        <div key={index} className={css.imageWrapper}>
+        <li key={index} className={css.imageWrapper}>
           <Image
             src={image.original}
             alt={`${name} - Image ${index + 1}`}
             fill
             className={css.image}
           />
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

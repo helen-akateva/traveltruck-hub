@@ -15,9 +15,9 @@ export default function ReviewsTab({ reviews }: ReviewsTabProps) {
   }
 
   return (
-    <div className={css.container}>
+    <ul className={css.container}>
       {reviews.map((review, index) => (
-        <div key={index} className={css.review}>
+        <li key={index} className={css.review}>
           {/* Reviewer Info */}
           <div className={css.header}>
             {/* Avatar */}
@@ -45,8 +45,8 @@ export default function ReviewsTab({ reviews }: ReviewsTabProps) {
           </div>
           {/* Comment */}
           <p className={css.comment}>{review.comment}</p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

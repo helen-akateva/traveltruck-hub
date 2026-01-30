@@ -37,9 +37,9 @@ export default function FeaturesTab({ camper }: FeaturesTabProps) {
   return (
     <div className={css.container}>
       {/* Characteristics */}
-      <div className={css.features}>
+      <ul className={css.features}>
         {characteristics.map((item) => (
-          <div key={item.key} className={css.feature}>
+          <li key={item.key} className={css.feature}>
             <svg width={20} height={20} className={css.featureIcon}>
               <use href={`/sprite.svg#icon-${item.icon}`} />
             </svg>
@@ -47,24 +47,24 @@ export default function FeaturesTab({ camper }: FeaturesTabProps) {
               {typeof item.value === "string"
                 ? item.value
                 : item.value
-                ? item.key
-                : ""}
+                  ? item.key
+                  : ""}
             </span>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {/* Vehicle Details */}
       <div className={css.details}>
         <h3 className={css.detailsTitle}>Vehicle details</h3>
-        <div className={css.detailsList}>
+        <ul className={css.detailsList}>
           {details.map((item) => (
-            <div key={item.key} className={css.detailItem}>
+            <li key={item.key} className={css.detailItem}>
               <span className={css.detailLabel}>{item.label}</span>
               <span className={css.detailValue}>{item.value}</span>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );
