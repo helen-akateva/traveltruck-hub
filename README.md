@@ -2,6 +2,14 @@
 
 **TravelTrucks** is a modern web application for searching and booking campers for travel. Built with Next.js and TypeScript, it provides a fast, convenient, and intuitive platform for travelers.
 
+🔗 **[Live Demo](https://traveltruck-hub.vercel.app/)**
+
+---
+
+## 🏷️ Topics
+
+`nextjs` `react` `typescript` `camper-rental` `travel` `booking-system` `zustand` `react-query` `vercel` `responsive-design` `css-modules` `frontend` `web-application` `tanstack-query` `spa`
+
 ## 📋 Project Description
 
 TravelTrucks helps users find the perfect camper for their journey. The application provides detailed information about each camper, including photos, specifications, reviews, and booking capabilities.
